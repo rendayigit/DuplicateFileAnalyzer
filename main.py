@@ -1,5 +1,5 @@
 """
-Professional Duplicate File Finder GUI
+Duplicate File Finder
 A modern PySide6 application for finding duplicate files with advanced features.
 Author: @rendayigit
 """
@@ -419,7 +419,7 @@ class DuplicateFileAnalyzer(QMainWindow):
 
     def __init__(self):
         super().__init__()
-        self.settings = QSettings("DuplicateFinder", "Pro")
+        self.settings = QSettings("DuplicateFinder")
         self.scan_results = {}
         self.current_scan = None
         self.scan_worker = None
@@ -453,7 +453,7 @@ class DuplicateFileAnalyzer(QMainWindow):
 
     def init_ui(self):
         """Initialize the user interface"""
-        self.setWindowTitle("Duplicate File Analyzer Pro")
+        self.setWindowTitle("Duplicate File Analyzer")
         self.setMinimumSize(1200, 800)
         self.resize(1400, 900)
 
@@ -1580,13 +1580,13 @@ class DuplicateFileAnalyzer(QMainWindow):
         """Show about dialog"""
         QMessageBox.about(
             self,
-            "About Duplicate File Analyzer Pro",
+            "About Duplicate File Analyzer",
             """
-            <h3>Duplicate File Analyzer Pro</h3>
+            <h3>Duplicate File Analyzer</h3>
             <p><b>Version:</b> 1.0.0</p>
             <p><b>Author:</b> @rendayigit</p>
             
-            <p>A professional duplicate file finder with advanced features:</p>
+            <p>A duplicate file finder with advanced features:</p>
             <ul>
             <li>Fast multi-stage analysis</li>
             <li>Modern GUI interface</li>
@@ -1669,7 +1669,7 @@ class DuplicateFileAnalyzer(QMainWindow):
 def main():
     """Main application entry point"""
     app = QApplication(sys.argv)
-    app.setApplicationName("Duplicate File Analyzer Pro")
+    app.setApplicationName("Duplicate File Analyzer")
     app.setApplicationVersion("1.0.0")
     app.setOrganizationName("DuplicateFinder")
     app.setOrganizationDomain("github.com/rendayigit")
