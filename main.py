@@ -1,6 +1,9 @@
 """
-Duplicate File Finder
-A modern PySide6 application for finding duplicate files with advanced features.
+Duplicate File Analyzer
+This application allows users to find and manage duplicate files on their system.
+It features a modern user interface built with PySide6, supporting both light and dark themes.
+It includes advanced features such as quick and full hash analysis, file filtering, and scan history.
+It also provides options for exporting results in various formats (JSON, CSV, HTML).
 Author: @rendayigit
 """
 
@@ -54,6 +57,7 @@ from PySide6.QtGui import (
     QPainter,
     QBrush,
     QLinearGradient,
+    QIcon,
 )
 
 
@@ -71,7 +75,7 @@ class ScanResult:
     timestamp: str = ""
 
 
-class DuplicateFinderCore(QObject):
+class DuplicateFileAnalyzerCore(QObject):
     """Core duplicate finding logic as a QObject for threading"""
 
     # Signals for GUI updates
@@ -290,7 +294,7 @@ class ScanWorker(QThread):
 
     def __init__(
         self,
-        core: DuplicateFinderCore,
+        core: DuplicateFileAnalyzerCore,
         directory: str,
         file_filters: Optional[List[str]] = None,
     ):
@@ -419,7 +423,7 @@ class DuplicateFileAnalyzer(QMainWindow):
 
     def __init__(self):
         super().__init__()
-        self.settings = QSettings("DuplicateFinder")
+        self.settings = QSettings("DuplicateFileAnalyzer")
         self.scan_results = {}
         self.current_scan = None
         self.scan_worker = None
@@ -456,6 +460,11 @@ class DuplicateFileAnalyzer(QMainWindow):
         self.setWindowTitle("Duplicate File Analyzer")
         self.setMinimumSize(1200, 800)
         self.resize(1400, 900)
+
+        # Set window icon
+        icon_path = os.path.join(os.path.dirname(__file__), "icon.png")
+        if os.path.exists(icon_path):
+            self.setWindowIcon(QIcon(icon_path))
 
         # Central widget
         central_widget = QWidget()
@@ -1257,7 +1266,7 @@ class DuplicateFileAnalyzer(QMainWindow):
         chunk_size = self._safe_int_setting("chunk_size", 8192)
         quick_hash_size = self._safe_int_setting("quick_hash_size", 1024)
 
-        self.current_scan = DuplicateFinderCore(chunk_size, quick_hash_size)
+        self.current_scan = DuplicateFileAnalyzerCore(chunk_size, quick_hash_size)
         self.current_scan.progress_updated.connect(self.update_progress)
         self.current_scan.stage_changed.connect(self.update_stage)
         self.current_scan.scan_completed.connect(self.scan_completed)
@@ -1585,8 +1594,8 @@ class DuplicateFileAnalyzer(QMainWindow):
             <h3>Duplicate File Analyzer</h3>
             <p><b>Version:</b> 1.0.0</p>
             <p><b>Author:</b> @rendayigit</p>
-            
-            <p>A duplicate file finder with advanced features:</p>
+
+            <p>A duplicate file analyzer with advanced features:</p>
             <ul>
             <li>Fast multi-stage analysis</li>
             <li>Modern GUI interface</li>
@@ -1671,11 +1680,13 @@ def main():
     app = QApplication(sys.argv)
     app.setApplicationName("Duplicate File Analyzer")
     app.setApplicationVersion("1.0.0")
-    app.setOrganizationName("DuplicateFinder")
+    app.setOrganizationName("DuplicateFileAnalyzer")
     app.setOrganizationDomain("github.com/rendayigit")
 
-    # Set application icon (you can add an icon file)
-    # app.setWindowIcon(QIcon("icon.png"))
+    # Set application icon
+    icon_path = os.path.join(os.path.dirname(__file__), "icon.png")
+    if os.path.exists(icon_path):
+        app.setWindowIcon(QIcon(icon_path))
 
     window = DuplicateFileAnalyzer()
     window.show()

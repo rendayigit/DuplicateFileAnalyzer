@@ -7,7 +7,7 @@
             "command": "bash",
             "args": [
                 "-c",
-                "pip install pyinstaller && pyinstaller --onefile --windowed --name 'DuplicateFinder' --icon=icon.png --distpath './dist' --workpath './build' --specpath './build' main.py && echo 'Release build completed! Executable created at: ./dist/DuplicateFinder'"
+                "pyinstaller --onefile --windowed --name 'DuplicateFileAnalyzer' --icon=icon.png --add-data '../icon.png:.' --distpath './dist' --specpath './build' main.py && echo 'Release build completed! Executable created at: ./dist/DuplicateFileAnalyzer'"
             ],
             "group": "build",
             "presentation": {
@@ -22,7 +22,7 @@
             "options": {
                 "cwd": "${workspaceFolder}"
             },
-            "detail": "Creates a standalone binary executable for distribution using PyInstaller"
+            "detail": "Creates a standalone binary executable for distribution using PyInstaller."
         }
     ]
 }

@@ -1,8 +1,12 @@
-# Duplicate File Finder
+# Duplicate File Analyzer
+
+<div align="center">
+  <img src="icon.png" alt="Duplicate File Analyzer Icon" width="128" height="128">
+</div>
 
 A modern, professional desktop application for finding and managing duplicate files on your computer. Clean up your storage space by identifying files with identical content, regardless of their names or locations.
 
-![Duplicate File Finder](https://img.shields.io/badge/Python-3.8+-blue.svg)
+![Duplicate File Analyzer](https://img.shields.io/badge/Python-3.8+-blue.svg)
 ![Platform](https://img.shields.io/badge/Platform-Windows%20%7C%20macOS%20%7C%20Linux-green.svg)
 ![License](https://img.shields.io/badge/License-MIT-orange.svg)
 
