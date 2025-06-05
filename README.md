@@ -10,6 +10,13 @@ A modern, professional desktop application for finding and managing duplicate fi
 ![Platform](https://img.shields.io/badge/Platform-Windows%20%7C%20macOS%20%7C%20Linux-green.svg)
 ![License](https://img.shields.io/badge/License-MIT-orange.svg)
 
+## 📸 Application Preview
+
+<div align="center">
+  <img src="AppScreenShot.png" alt="Duplicate File Analyzer Screenshot" width="800">
+  <p><em>Clean, modern interface with real-time progress tracking and organized results</em></p>
+</div>
+
 ## ✨ Features
 
 ### 🎯 Smart Duplicate Detection
