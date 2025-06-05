@@ -1,8 +1,8 @@
-# Duplicate File Finder Pro
+# Duplicate File Finder
 
 A modern, professional desktop application for finding and managing duplicate files on your computer. Clean up your storage space by identifying files with identical content, regardless of their names or locations.
 
-![Duplicate File Finder Pro](https://img.shields.io/badge/Python-3.8+-blue.svg)
+![Duplicate File Finder](https://img.shields.io/badge/Python-3.8+-blue.svg)
 ![Platform](https://img.shields.io/badge/Platform-Windows%20%7C%20macOS%20%7C%20Linux-green.svg)
 ![License](https://img.shields.io/badge/License-MIT-orange.svg)
 
